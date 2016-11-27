@@ -1,0 +1,33 @@
+{
+  "name": "my-new-es-module",
+  "version": "0.1.0",
+  "private": "true",
+  "description": "Boilerplate for an ES ready module",
+  "main": "lib/index.js",
+  "jsnext:main": "src/index.js",
+  "files": [
+    "lib",
+    "src"
+  ],
+  "scripts": {
+    "clean": "rimraf lib",
+    "lint:src": "eslint src",
+    "check:src": "npm run lint:src && npm run test",
+    "build": "npm run build:commonjs",
+    "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
+    "prepublish": "npm run clean && npm run check:src && npm run build",
+    "test": "jest"
+  },
+  "author": "Jens Klose <jens.klose@googlemail.com>",
+  "license": "MIT",
+  "repository": "",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-preset-latest": "^6.16.0",
+    "cross-env": "^1.0.7",
+    "eslint": "^1.10.3",
+    "jest": "^17.0.3",
+    "rimraf": "^2.5.4"
+  }
+}
